@@ -37,7 +37,7 @@ def information_employee():
                 user_name = usr['username']
                 break
 
-            dict_id[str(user_id)] = list_task
+            dict_id[user_id] = list_task
 
         for tod in response_json_tod:
             if (tod['userId'] == user_id):
