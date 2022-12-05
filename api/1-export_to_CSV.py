@@ -16,7 +16,7 @@ def information_employee():
     user_name = ""
     task_completed_status = False
     task_title = ""
-    list_task_employee = []
+    list_task = []
 
     url_users = 'https://jsonplaceholder.typicode.com/users'
     url_todos = 'https://jsonplaceholder.typicode.com/todos'
@@ -39,7 +39,6 @@ def information_employee():
                 task_title = tod['title']
                 list_task = [user_id, user_name,
                              task_completed_status, task_title]
-                list_task_employee.append(list_task)
 
                 with open(str(user_id) + ".csv", 'a',
                           encoding='UTF8', newline='') as csvf:
