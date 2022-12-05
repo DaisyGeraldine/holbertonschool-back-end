@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module to export data in the CSV format """
+""" Module script to export data in the JSON format """
 from requests import get
 from sys import argv
 import json
@@ -37,7 +37,7 @@ def information_employee():
                 user_name = usr['username']
                 break
 
-            dict_id[user_id] = list_task
+            dict_id[str(user_id)] = list_task
 
         for tod in response_json_tod:
             if (tod['userId'] == user_id):
