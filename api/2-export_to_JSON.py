@@ -35,18 +35,19 @@ def information_employee():
         for usr in response_json_usr:
             if usr['id'] == user_id:
                 user_name = usr['username']
+
+                dict_id[str(user_id)] = list_task
+
+                for tod in response_json_tod:
+                    if (tod['userId'] == user_id):
+                        task_completed_status = tod['completed']
+                        task_title = tod['title']
+                        dict_task = {"task": task_title,
+                                     "completed": task_completed_status,
+                                     "username": user_name}
+                        list_task.append(dict_task)
+
                 break
-
-            dict_id[str(user_id)] = list_task
-
-            for tod in response_json_tod:
-                if (tod['userId'] == user_id):
-                    task_completed_status = tod['completed']
-                    task_title = tod['title']
-                    dict_task = {"task": task_title,
-                                 "completed": task_completed_status,
-                                 "username": user_name}
-                    list_task.append(dict_task)
 
         with open(str(user_id) + ".json", 'w',
                   encoding='UTF8') as fjson:
